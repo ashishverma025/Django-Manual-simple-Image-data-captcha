@@ -1,0 +1,3 @@
+
+
+{{ captchaImg }}<button type="button" class="btn btn-primary captcharefresh" ><i class="fa fa-refresh" aria-hidden="true"></i></button><script>$('.captcharefresh').click(function () {$.ajax({url:'/getCaptcha_ajax',contentType: "image/png",dataType: "text",success:function(res){$('#captchaimg').html(res)}})})</script>

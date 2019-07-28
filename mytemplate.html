@@ -1,0 +1,53 @@
+
+<div>
+	<input type="text" placeholder="Type Here.." class="affltform" id="captcha"  name="captcha" maxlength="4" value="{{ contact.captcha }}" autocomplete="off">
+		<div  id="captchaimg">
+		{# CAPTCHA IMAGE SHOW #}
+		{{ captchaImg }}
+		<button type="button" class="btn btn-primary captcharefresh" >
+		 <i class="fa fa-refresh" aria-hidden="true"></i>
+		</button>
+	</div>
+</div>
+
+
+<script>
+	$('.captcharefresh').click(function () {
+	$.ajax({
+	    url:'/getCaptcha_ajax',
+	    contentType: "image/png",
+	    dataType: "text",
+	    success:function(res){
+		$('#captchaimg').html(res)
+	    }
+	})
+	})
+</script>
+
+<style>
+/*CAPTCHA CSS START*/
+#captcha.affltform, #captchaimg{display:inline-block;width:49%;margin:0;vertical-align: middle}
+#captchaimg img{vertical-align: middle;display: inline-block}
+.captcharefresh{
+    background: transparent;
+    border: 0;
+    color: #e63f53;
+    font-size: 20px;
+}
+#captchaimg img {
+    vertical-align: middle;
+    display: inline-block;
+    width: 61px;
+    border-radius: 5px;
+    margin-left: 6px;
+}
+button.affltform {
+    color: #fff;
+    font-weight: 600;
+    background: #e51153;
+    border: 0;
+    padding: 12px 0;
+    margin-top: 20px;
+}
+/*CAPTCHA CSS END*/
+</style>
